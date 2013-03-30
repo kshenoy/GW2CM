@@ -5,66 +5,62 @@
 ; ^ - Ctrl
 ; # - Win
 
-
-; __________ HOTKEY BINDINGS IN GW2 ____________________________________________
-
-; Specify the in-game bindings used
-skill_1 = r
-skill_2 = q
-skill_3 = e
-skill_4 = !q
-skill_5 = !e
-skill_6 = f
-skill_7 = z
-skill_8 = x
-skill_9 = c
-skill_0 = v
-
-dodge       = {MButton}
-switch_weap = !r
-stow_weap   = +r
-take_target = t
-
-
-
 ; __________ BINDINGS FOR COMBAT MODE __________________________________________
 
-left_click         = %skill_1%
-alt_left_click     = %switch_weap%
-ctrl_left_click    = %take_target%
-shift_left_click   = %stow_weap%
+IniRead, left_click,        settings.ini, defaults, LEFT,        1
+IniRead, right_click,       settings.ini, defaults, RIGHT,       v
+IniRead, toggle_key_def,    settings.ini, defaults, TOGGLE_CM,   Tab
+IniRead, target_lock_def,   settings.ini, defaults, TARGET_LOCK, x
+IniRead, chat_key_def,      settings.ini, defaults, CHAT,        Enter
+IniRead, escape_key_def,    settings.ini, defaults, ESCAPE,      Escape
+IniRead, map_key_def,       settings.ini, defaults, MAP,         m
+IniRead, guild_key_def,     settings.ini, defaults, GUILD,       g
+IniRead, hero_key_def,      settings.ini, defaults, HERO,        h
+IniRead, inventory_key_def, settings.ini, defaults, INVENTORY,   i
+IniRead, invite_key_def,    settings.ini, defaults, INVITE,      p
+IniRead, pvp_key_def,       settings.ini, defaults, PVP,
+IniRead, reply_key_def,     settings.ini, defaults, REPLY,       BackSpace
+IniRead, social_key_def,    settings.ini, defaults, SOCIAL,      y
+IniRead, trade_key_def,     settings.ini, defaults, TRADE,       o
+IniRead, wvw_key_def,       settings.ini, defaults, WVW,         Numpad6
+IniRead, command_key_def,   settings.ini, defaults, COMMAND,     /
 
-right_click        = %dodge%
-alt_right_click    = %skill_7%
-shift_right_click  = %skill_8%
-ctrl_right_click   = %skill_9%
+IniRead, left_click,         settings.ini, all, LEFT,     left_click_def
+IniRead, alt_left_click,     settings.ini, all, A_LEFT,   alt_left_click_def
+IniRead, shift_left_click,   settings.ini, all, S_LEFT,   shift_left_click_def
+IniRead, ctrl_left_click,    settings.ini, all, C_LEFT,   ctrl_left_click_def
+IniRead, right_click,        settings.ini, all, RIGHT,    right_click_def
+IniRead, alt_right_click,    settings.ini, all, A_RIGHT,  alt_right_click_def
+IniRead, shift_right_click,  settings.ini, all, S_RIGHT,  shift_right_click_def
+IniRead, ctrl_right_click,   settings.ini, all, C_RIGHT,  ctrl_right_click_def
+IniRead, middle_click,       settings.ini, all, MIDDLE,   middle_click_def
+IniRead, alt_middle_click,   settings.ini, all, A_MIDDLE, alt_middle_click_def
+IniRead, shift_middle_click, settings.ini, all, S_MIDDLE, shift_middle_click_def
+IniRead, ctrl_middle_click,  settings.ini, all, C_MIDDLE, ctrl_middle_click_def
+IniRead, scroll_up,          settings.ini, all, UP,       scroll_up_def
+IniRead, alt_scroll_up,      settings.ini, all, A_UP,     alt_scroll_up_def
+IniRead, shift_scroll_up,    settings.ini, all, S_UP,     shift_scroll_up_def
+IniRead, ctrl_scroll_up,     settings.ini, all, C_UP,     ctrl_scroll_up_def
+IniRead, scroll_down,        settings.ini, all, DOWN,     scroll_down_def
+IniRead, alt_scroll_down,    settings.ini, all, A_DOWN,   alt_scroll_down_def
+IniRead, shift_scroll_down,  settings.ini, all, S_DOWN,   shift_scroll_down_def
+IniRead, ctrl_scroll_down,   settings.ini, all, C_DOWN,   ctrl_scroll_down_def
 
-middle_click       = %dodge%
-alt_middle_click   = %skill_6%
-shift_middle_click = %skill_0%
-
-scroll_down        = %skill_2%
-alt_scroll_down    = %skill_4%
-ctrl_scroll_down   = {PgDn}
-scroll_up          = %skill_3%
-alt_scroll_up      = %skill_5%
-ctrl_scroll_up     = {PgUp}
-
-toggle_key         = !b
-target_lock        = b
-chat_key           = Enter
-escape_key         = Escape
-map_key            = m
-guild_key          = Numpad9
-hero_key           = Numpad5
-inventory_key      = i
-invite_key         = p
-pvp_key            = Numpad4
-reply_key          = BackSpace
-social_key         = Numpad8
-trade_key          = u
-wvw_key            = Numpad6
-command_key        = /
+IniRead, toggle_key,    settings.ini, all, TOGGLE_CM,   toggle_key_def
+IniRead, target_lock,   settings.ini, all, TARGET_LOCK, target_lock_def
+IniRead, chat_key,      settings.ini, all, CHAT,        chat_key_def
+IniRead, escape_key,    settings.ini, all, ESCAPE,      escape_key_def
+IniRead, map_key,       settings.ini, all, MAP,         map_key_def
+IniRead, guild_key,     settings.ini, all, GUILD,       guild_key_def
+IniRead, hero_key,      settings.ini, all, HERO,        hero_key_def
+IniRead, inventory_key, settings.ini, all, INVENTORY,   inventory_key_def
+IniRead, invite_key,    settings.ini, all, INVITE,      invite_key_def
+IniRead, pvp_key,       settings.ini, all, PVP,         pvp_key_def
+IniRead, reply_key,     settings.ini, all, REPLY,       reply_key_def
+IniRead, social_key,    settings.ini, all, SOCIAL,      social_key_def
+IniRead, trade_key,     settings.ini, all, TRADE,       trade_key_def
+IniRead, wvw_key,       settings.ini, all, WVW,         wvw_key_def
+IniRead, command_key,   settings.ini, all, COMMAND,     command_key_def
 
 
 
@@ -73,10 +69,12 @@ command_key        = /
 ; xhair_yper : Location of Crosshair from top of screen, as a percentage.
 ;              0 = Top, 1 = Bottom of Screen
 ; xhair_ypos : Location of Crosshair in pixels with offset of ( size of xhair / 2 )
-xhair_yper = 0.45
-xhair_ypos := ( A_ScreenHeight*xhair_yper - 50 )
-;xhair_img  = SmallXOrange.bmp
-xhair_img  = Crosshair.bmp
+IniRead, xhair_yper_def, settings.ini, defaults, XHAIR_POS, 0.4
+IniRead, xhair_img_def,  settings.ini, defaults, XHAIR_IMG, Ring.bmp
+IniRead, xhair_yper,     settings.ini, all,      XHAIR_POS, xhair_yper_def
+IniRead, xhair_img,      settings.ini, all,      XHAIR_IMG, xhair_img_def
+
+xhair_ypos := ( A_ScreenHeight*xhair_yper - 12 )
 
 
 
@@ -112,8 +110,9 @@ toggle_combat_mode:
     combat_mode := true
     BlockInput, MouseMove
     ; Move cursor to Crosshair location
-    DllCall("SetCursorPos", int, ( A_ScreenWidth/2 - 4 ) , int, ( A_ScreenHeight * xhair_yper ))
+    DllCall("SetCursorPos", int, ( A_ScreenWidth/2-4 ) , int, ( A_ScreenHeight * xhair_yper ))
     Send {RButton Down}
+    ; WHY: Move cursor 4 pixels to the right relative to current location
     MouseMove 4, 0, 0, R
     BlockInput, MouseMoveOff
     SplashImage, %xhair_img%,y%xhair_ypos% b,,,Crs
@@ -130,6 +129,7 @@ toggle_combat_mode:
 return
 
 
+$^LButton::
 target_lock:
 if ( varExist( target_lock ) && combat_mode ) {
   Send, {%target_lock% Up}
@@ -170,16 +170,16 @@ return
 
 ; Ctrl+LeftClick
 ;$^LButton::
-  if ( varExist( ctrl_left_click ) && combat_mode ){
-    Send, %ctrl_left_click%
-  } else {
-    Send, {Control Down}
-    Click Down Left
-    KeyWait, LButton
-    Click Up Left
-    Send, {Control Up}
-  }
-return
+;  if ( varExist( ctrl_left_click ) && combat_mode ){
+;    Send, %ctrl_left_click%
+;  } else {
+;    Send, {Control Down}
+;    Click Down Left
+;    KeyWait, LButton
+;    Click Up Left
+;    Send, {Control Up}
+;  }
+;return
 
 ; Shift+LeftClick
 $+LButton::
@@ -364,7 +364,6 @@ open_chat:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%chat_key%}
@@ -375,7 +374,6 @@ open_command:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%command_key%}
@@ -386,10 +384,10 @@ open_escape:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
+  } else {
+    Send, {%escape_key%}
   }
-  Send, {%escape_key%}
 return
 
 
@@ -397,7 +395,6 @@ open_guild:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%guild_key%}
@@ -408,7 +405,6 @@ open_hero:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%hero_key%}
@@ -419,7 +415,6 @@ open_inventory:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%inventory_key%}
@@ -430,7 +425,6 @@ open_invite:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%invite_key%}
@@ -441,7 +435,6 @@ open_map:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%map_key%}
@@ -452,7 +445,6 @@ open_pvp:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%pvp_key%}
@@ -463,7 +455,6 @@ open_reply:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%reply_key%}
@@ -474,7 +465,6 @@ open_social:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%social_key%}
@@ -485,7 +475,6 @@ open_trade:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%trade_key%}
@@ -496,7 +485,6 @@ open_wvw:
   if ( combat_mode ){
     combat_mode := false
     Send, {RButton Up}
-    ;MouseMove pointer_x, pointer_y
     SplashImage, Off
   }
   Send, {%wvw_key%}
@@ -511,31 +499,33 @@ return
 ; the actions in addition to allowing the original functionality
 
 ; Alt+Tab
-~!TAB::
-; Ctrl+Alt+Del
-~^!DEL::
-if ( combat_mode )
+*!TAB::
   combat_mode := false
   SplashImage, Off
   Send, {RButton Up}
-  ;MouseMove pointer_x, pointer_y
+  Send, {LAlt Down}{Tab}
+  sleep 10
+  Send, {LAlt Up}
+return
+
+; Ctrl+Alt+Del
+~^!DEL::
+  combat_mode := false
   SplashImage, Off
+  Send, {RButton Up}
 return
 
 ~LWin::
   combat_mode := false
-  Send, {RButton Up}
-  ;MouseMove pointer_x, pointer_y
   SplashImage, Off
+  Send, {RButton Up}
   Send, {LWin}
 return
 
 ~RWin::
-if ( combat_mode )
   combat_mode := false
-  Send, {RButton Up}
-  ;MouseMove pointer_x, pointer_y
   SplashImage, Off
+  Send, {RButton Up}
   Send, {RWin}
 return
 
