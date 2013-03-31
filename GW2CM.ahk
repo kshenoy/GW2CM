@@ -5,80 +5,61 @@
 ; ^ - Ctrl
 ; # - Win
 
-; __________ BINDINGS FOR COMBAT MODE __________________________________________
-
-IniRead, left_click,        settings.ini, defaults, LEFT,        1
-IniRead, right_click,       settings.ini, defaults, RIGHT,       v
-IniRead, toggle_key_def,    settings.ini, defaults, TOGGLE_CM,   Tab
-IniRead, target_lock_def,   settings.ini, defaults, TARGET_LOCK, x
-IniRead, chat_key_def,      settings.ini, defaults, CHAT,        Enter
-IniRead, escape_key_def,    settings.ini, defaults, ESCAPE,      Escape
-IniRead, map_key_def,       settings.ini, defaults, MAP,         m
-IniRead, guild_key_def,     settings.ini, defaults, GUILD,       g
-IniRead, hero_key_def,      settings.ini, defaults, HERO,        h
-IniRead, inventory_key_def, settings.ini, defaults, INVENTORY,   i
-IniRead, invite_key_def,    settings.ini, defaults, INVITE,      p
-IniRead, pvp_key_def,       settings.ini, defaults, PVP,
-IniRead, reply_key_def,     settings.ini, defaults, REPLY,       BackSpace
-IniRead, social_key_def,    settings.ini, defaults, SOCIAL,      y
-IniRead, trade_key_def,     settings.ini, defaults, TRADE,       o
-IniRead, wvw_key_def,       settings.ini, defaults, WVW,         Numpad6
-IniRead, command_key_def,   settings.ini, defaults, COMMAND,     /
-
-IniRead, left_click,         settings.ini, all, LEFT,     left_click_def
-IniRead, alt_left_click,     settings.ini, all, A_LEFT,   alt_left_click_def
-IniRead, shift_left_click,   settings.ini, all, S_LEFT,   shift_left_click_def
-IniRead, ctrl_left_click,    settings.ini, all, C_LEFT,   ctrl_left_click_def
-IniRead, right_click,        settings.ini, all, RIGHT,    right_click_def
-IniRead, alt_right_click,    settings.ini, all, A_RIGHT,  alt_right_click_def
-IniRead, shift_right_click,  settings.ini, all, S_RIGHT,  shift_right_click_def
-IniRead, ctrl_right_click,   settings.ini, all, C_RIGHT,  ctrl_right_click_def
-IniRead, middle_click,       settings.ini, all, MIDDLE,   middle_click_def
-IniRead, alt_middle_click,   settings.ini, all, A_MIDDLE, alt_middle_click_def
-IniRead, shift_middle_click, settings.ini, all, S_MIDDLE, shift_middle_click_def
-IniRead, ctrl_middle_click,  settings.ini, all, C_MIDDLE, ctrl_middle_click_def
-IniRead, scroll_up,          settings.ini, all, UP,       scroll_up_def
-IniRead, alt_scroll_up,      settings.ini, all, A_UP,     alt_scroll_up_def
-IniRead, shift_scroll_up,    settings.ini, all, S_UP,     shift_scroll_up_def
-IniRead, ctrl_scroll_up,     settings.ini, all, C_UP,     ctrl_scroll_up_def
-IniRead, scroll_down,        settings.ini, all, DOWN,     scroll_down_def
-IniRead, alt_scroll_down,    settings.ini, all, A_DOWN,   alt_scroll_down_def
-IniRead, shift_scroll_down,  settings.ini, all, S_DOWN,   shift_scroll_down_def
-IniRead, ctrl_scroll_down,   settings.ini, all, C_DOWN,   ctrl_scroll_down_def
-
-IniRead, toggle_key,    settings.ini, all, TOGGLE_CM,   toggle_key_def
-IniRead, target_lock,   settings.ini, all, TARGET_LOCK, target_lock_def
-IniRead, chat_key,      settings.ini, all, CHAT,        chat_key_def
-IniRead, escape_key,    settings.ini, all, ESCAPE,      escape_key_def
-IniRead, map_key,       settings.ini, all, MAP,         map_key_def
-IniRead, guild_key,     settings.ini, all, GUILD,       guild_key_def
-IniRead, hero_key,      settings.ini, all, HERO,        hero_key_def
-IniRead, inventory_key, settings.ini, all, INVENTORY,   inventory_key_def
-IniRead, invite_key,    settings.ini, all, INVITE,      invite_key_def
-IniRead, pvp_key,       settings.ini, all, PVP,         pvp_key_def
-IniRead, reply_key,     settings.ini, all, REPLY,       reply_key_def
-IniRead, social_key,    settings.ini, all, SOCIAL,      social_key_def
-IniRead, trade_key,     settings.ini, all, TRADE,       trade_key_def
-IniRead, wvw_key,       settings.ini, all, WVW,         wvw_key_def
-IniRead, command_key,   settings.ini, all, COMMAND,     command_key_def
-
-
-
-; __________ CROSSHAIR OPTIONS _________________________________________________
+; __________ CROSSHAIR OPTIONS ____________________________________________ {{{1
 
 ; xhair_yper : Location of Crosshair from top of screen, as a percentage.
 ;              0 = Top, 1 = Bottom of Screen
 ; xhair_ypos : Location of Crosshair in pixels with offset of ( size of xhair / 2 )
-IniRead, xhair_yper_def, settings.ini, defaults, XHAIR_POS, 0.4
-IniRead, xhair_img_def,  settings.ini, defaults, XHAIR_IMG, Ring.bmp
-IniRead, xhair_yper,     settings.ini, all,      XHAIR_POS, xhair_yper_def
-IniRead, xhair_img,      settings.ini, all,      XHAIR_IMG, xhair_img_def
+IniRead, xhair_yper, settings.ini, current, XHAIR_POS
+IniRead, xhair_img,  settings.ini, current, XHAIR_IMG
 
 xhair_ypos := ( A_ScreenHeight*xhair_yper - 12 )
 
 
 
-; __________ COMBAT MODE SCRIPT. DON'T MODIFY ANYTHING BELOW THIS ______________
+; __________ READ SETTINGS ________________________________________________ {{{1
+
+IniRead, left_click,         settings.ini, current, LEFT
+IniRead, alt_left_click,     settings.ini, current, A_LEFT
+IniRead, shift_left_click,   settings.ini, current, S_LEFT
+IniRead, ctrl_left_click,    settings.ini, current, C_LEFT
+IniRead, right_click,        settings.ini, current, RIGHT
+IniRead, alt_right_click,    settings.ini, current, A_RIGHT
+IniRead, shift_right_click,  settings.ini, current, S_RIGHT
+IniRead, ctrl_right_click,   settings.ini, current, C_RIGHT
+IniRead, middle_click,       settings.ini, current, MIDDLE
+IniRead, alt_middle_click,   settings.ini, current, A_MIDDLE
+IniRead, shift_middle_click, settings.ini, current, S_MIDDLE
+IniRead, ctrl_middle_click,  settings.ini, current, C_MIDDLE
+IniRead, scroll_up,          settings.ini, current, UP
+IniRead, alt_scroll_up,      settings.ini, current, A_UP
+IniRead, shift_scroll_up,    settings.ini, current, S_UP
+IniRead, ctrl_scroll_up,     settings.ini, current, C_UP
+IniRead, scroll_down,        settings.ini, current, DOWN
+IniRead, alt_scroll_down,    settings.ini, current, A_DOWN
+IniRead, shift_scroll_down,  settings.ini, current, S_DOWN
+IniRead, ctrl_scroll_down,   settings.ini, current, C_DOWN
+IniRead, toggle_key,         settings.ini, current, TOGGLE_CM
+IniRead, target_lock,        settings.ini, current, TARGET_LOCK
+IniRead, chat_key,           settings.ini, current, CHAT
+IniRead, command_key,        settings.ini, current, COMMAND
+IniRead, guild_key,          settings.ini, current, GUILD
+IniRead, hero_key,           settings.ini, current, HERO
+IniRead, inventory_key,      settings.ini, current, INVENTORY
+IniRead, invite_key,         settings.ini, current, INVITE
+IniRead, mail_key,           settings.ini, current, MAIL
+IniRead, map_key,            settings.ini, current, MAP
+IniRead, menu_key,           settings.ini, current, MENU
+IniRead, pet_key,            settings.ini, current, PET
+IniRead, pvp_key,            settings.ini, current, PVP
+IniRead, reply_key,          settings.ini, current, REPLY
+IniRead, social_key,         settings.ini, current, SOCIAL
+IniRead, trade_key,          settings.ini, current, TRADE
+IniRead, wvw_key,            settings.ini, current, WVW
+
+
+
+; __________ COMBAT MODE SCRIPT. DON'T MODIFY ANYTHING BELOW THIS _________ {{{1
 
 combat_mode  := false
 
@@ -86,20 +67,38 @@ combat_mode  := false
 
 Hotkey, IfWinActive, Guild Wars 2
 Hotkey, %toggle_key%, toggle_combat_mode, UseErrorLevel 2
-Hotkey, %target_lock%, target_lock, UseErrorLevel 2
-Hotkey, %chat_key%, open_chat, UseErrorLevel 2
-Hotkey, %command_key%, open_command, UseErrorLevel 2
-Hotkey, %escape_key%, open_escape, UseErrorLevel 2
-Hotkey, %guild_key%, open_guild, UseErrorLevel 2
-Hotkey, %hero_key%, open_hero, UseErrorLevel 2
-Hotkey, %inventory_key%, open_inventory, UseErrorLevel 2
-Hotkey, %invite_key%, open_invite, UseErrorLevel 2
-Hotkey, %map_key%, open_map, UseErrorLevel 2
-Hotkey, %pvp_key%, open_pvp, UseErrorLevel 2
-Hotkey, %reply_key%, open_reply, UseErrorLevel 2
-Hotkey, %social_key%, open_social, UseErrorLevel 2
-Hotkey, %trade_key%, open_trade, UseErrorLevel 2
-Hotkey, %wvw_key%, open_wvw, UseErrorLevel 2
+Loop, parse, target_lock, :
+  Hotkey, %A_LoopField%, target_lock, UseErrorLevel 2
+Loop, parse, chat_key, :
+  Hotkey, %A_LoopField%, open_chat%A_index%, UseErrorLevel 2
+Loop, parse, command_key, :
+  Hotkey, %A_LoopField%, open_command%A_index%, UseErrorLevel 2
+Loop, parse, menu_key, :
+  Hotkey, %A_LoopField%, open_menu%A_index%, UseErrorLevel 2
+Loop, parse, guild_key, :
+  Hotkey, %A_LoopField%, open_guild%A_index%, UseErrorLevel 2
+Loop, parse, hero_key, :
+  Hotkey, %A_LoopField%, open_hero%A_index%, UseErrorLevel 2
+Loop, parse, inventory_key, :
+  Hotkey, %A_LoopField%, open_inventory%A_index%, UseErrorLevel 2
+Loop, parse, invite_key, :
+  Hotkey, %A_LoopField%, open_invite%A_index%, UseErrorLevel 2
+Loop, parse, mail_key, :
+  Hotkey, %A_LoopField%, open_mail%A_index%, UseErrorLevel 2
+Loop, parse, map_key, :
+  Hotkey, %A_LoopField%, open_map%A_index%, UseErrorLevel 2
+Loop, parse, pet_key, :
+  Hotkey, %A_LoopField%, open_pet%A_index%, UseErrorLevel 2
+Loop, parse, pvp_key, :
+  Hotkey, %A_LoopField%, open_pvp%A_index%, UseErrorLevel 2
+Loop, parse, reply_key, :
+  Hotkey, %A_LoopField%, open_reply%A_index%, UseErrorLevel 2
+Loop, parse, social_key, :
+  Hotkey, %A_LoopField%, open_social%A_index%, UseErrorLevel 2
+Loop, parse, trade_key, :
+  Hotkey, %A_LoopField%, open_trade%A_index%, UseErrorLevel 2
+Loop, parse, wvw_key, :
+  Hotkey, %A_LoopField%, open_wvw%A_index%, UseErrorLevel 2
 return
 
 
@@ -131,19 +130,20 @@ return
 
 $^LButton::
 target_lock:
-if ( varExist( target_lock ) && combat_mode ) {
-  Send, {%target_lock% Up}
-  Sleep, 20
-  Send, {%target_lock% Down}
-  Sleep, 100
-} else {
-  Send, %target_lock%
-}
+  StringSplit, key, keys, :, %A_Space%
+  if ( varExist( target_lock ) && combat_mode ) {
+    Send, {%target_lock% Up}
+    Sleep, 20
+    Send, {%target_lock% Down}
+    Sleep, 100
+  } else {
+    Send, %target_lock%
+  }
 return
 
 
 
-; __________ LEFT-CLICK BINDINGS _______________________________________________
+; __________ LEFT-CLICK BINDINGS __________________________________________ {{{1
 
 $LButton::
   if ( varExist( left_click ) && combat_mode ){
@@ -196,7 +196,7 @@ return
 
 
 
-; __________ RIGHT-CLICK BINDINGS ______________________________________________
+; __________ RIGHT-CLICK BINDINGS _________________________________________ {{{1
 
 $RButton::
   if ( varExist( right_click ) && combat_mode ){
@@ -249,7 +249,7 @@ return
 
 
 
-; __________ MIDDLE-CLICK BINDINGS _____________________________________________
+; __________ MIDDLE-CLICK BINDINGS ________________________________________ {{{1
 
 $MButton::
   if ( varExist( middle_click ) && combat_mode ){
@@ -302,7 +302,7 @@ return
 
 
 
-; __________ MOUSEWHEEL BINDINGS _______________________________________________
+; __________ MOUSEWHEEL BINDINGS __________________________________________ {{{1
 
 $WheelUp::
   if ( combat_mode ){
@@ -358,141 +358,130 @@ return
 
 
 
-; __________ PANEL KEYS _______________________________________________________
+; __________ PANEL KEYS ___________________________________________________ {{{1
 
-open_chat:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%chat_key%}
+open_chat1:
+  openPanel( chat_key, 1 )
+return
+open_chat2:
+  openPanel( chat_key, 2 )
 return
 
 
-open_command:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%command_key%}
+open_command1:
+  openPanel( command_key, 1 )
+return
+open_command2:
+  openPanel( command_key, 2 )
 return
 
 
-open_escape:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  } else {
-    Send, {%escape_key%}
-  }
+open_menu1:
+  openPanel( menu_key, 1 )
+return
+open_menu2:
+  openPanel( menu_key, 2 )
 return
 
 
-open_guild:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%guild_key%}
+open_guild1:
+  openPanel( guild_key, 1 )
+return
+open_guild2:
+  openPanel( guild_key, 2 )
 return
 
 
-open_hero:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%hero_key%}
+open_hero1:
+  openPanel( hero_key, 1 )
+return
+open_hero2:
+  openPanel( hero_key, 2 )
 return
 
 
-open_inventory:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%inventory_key%}
+open_inventory1:
+  openPanel( inventory_key, 1 )
+return
+open_inventory2:
+  openPanel( inventory_key, 2 )
 return
 
 
-open_invite:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%invite_key%}
+open_invite1:
+  openPanel( invite_key, 1 )
+return
+open_invite2:
+  openPanel( invite_key, 2 )
 return
 
 
-open_map:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%map_key%}
+open_mail1:
+  openPanel( mail_key, 1 )
+return
+open_mail2:
+  openPanel( mail_key, 2 )
 return
 
 
-open_pvp:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%pvp_key%}
+open_map1:
+  openPanel( map_key, 1 )
+return
+open_map2:
+  openPanel( map_key, 2 )
 return
 
 
-open_reply:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%reply_key%}
+open_pet1:
+  openPanel( pet_key, 1 )
+return
+open_pet2:
+  openPanel( pet_key, 2 )
 return
 
 
-open_social:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%social_key%}
+open_pvp1:
+  openPanel( pvp_key, 1 )
+return
+open_pvp2:
+  openPanel( pvp_key, 2 )
 return
 
 
-open_trade:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%trade_key%}
+open_reply1:
+  openPanel( reply_key, 1 )
+return
+open_reply2:
+  openPanel( reply_key, 2 )
 return
 
 
-open_wvw:
-  if ( combat_mode ){
-    combat_mode := false
-    Send, {RButton Up}
-    SplashImage, Off
-  }
-  Send, {%wvw_key%}
+open_social1:
+  openPanel( social_key, 1 )
+return
+open_social2:
+  openPanel( social_key, 2 )
+return
+
+
+open_trade1:
+  openPanel( trade_key, 1 )
+return
+open_trade2:
+  openPanel( trade_key, 2 )
+return
+
+
+open_wvw1:
+  openPanel( wvw_key, 1 )
+return
+open_wvw2:
+  openPanel( wvw_key, 2 )
 return
 
 
 
-; __________ WINDOW SWAP _______________________________________________________
+; __________ WINDOW SWAP __________________________________________________ {{{1
 
 ; NOTE For Alt+Tab and Ctrl+Alt+Del, we just exit combat mode and don't Send
 ; those keypresses explicitly. This is done by using the "~" key which performs
@@ -534,7 +523,21 @@ return
 
 
 
-; __________ FUNCTIONS _________________________________________________________
+; __________ FUNCTIONS ____________________________________________________ {{{1
 varExist(ByRef v) { ; Requires 1.0.46+
   return &v = &n ? false : v = "" ? false : true
+}
+
+openPanel( keys, index ){
+  StringSplit, key, keys, :, %A_Space%
+  global combat_mode
+  if ( combat_mode ){
+    combat_mode := false
+    Send, {RButton Up}
+    SplashImage, Off
+  }
+  if ( index = 1 )
+    Send, {%key1%}
+  else if ( index = 2 )
+    Send, {%key2%}
 }
