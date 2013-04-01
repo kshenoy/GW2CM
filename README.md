@@ -54,9 +54,6 @@ The original author, pvpProject, has created detailed [YouTube video](http://www
 of how CombatMod works which should paint a much clearer picture of what this mod is capable of than I'll be able to
 explain here in words. Please watch it first.  
 
-Here's what the Settings screen of the mod looks like.  
-![](GW2CM_Screen1.png?raw=true)  
-
 Out of the box, the following keybinds are enabled
 
 * 'Target Lock' to select new targets present under the crosshair
@@ -69,6 +66,9 @@ Out of the box, the following keybinds are enabled
 
 
 ## Customizing
+
+Here's what the Settings screen of the mod looks like.  
+![](GW2CM_Screen1.png?raw=true)  
 
 The Settings screen can be accessed in 2 ways  
 
