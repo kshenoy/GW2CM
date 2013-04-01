@@ -1,4 +1,4 @@
-# Guild Wars 2, Combat Mode Mod
+# Guild Wars 2, Combat Mod
 
 First credits where they are due. GW2CM was first conceived and developed by **pvpProject**.
 You can find the [original post](http://www.reddit.com/r/Guildwars2/comments/10s4s6/combat_mode_11/) on reddit.  
@@ -43,16 +43,19 @@ First, you will need to make the following changes in Guild Wars 2:
 
 * In *Control Options*, add binding 'x' to *Lock Autotarget*
 
-Next, unzip to where ever you like. Once unzipped, Double Click on 'GW2CM.exe' to start Combat Mode Mod.  
+Next, unzip to where ever you like. Once unzipped, Double Click on 'GW2CM.exe' to start Combat Mod.  
 If it worked correctly you will see the icon in the notification tray; it may be hidden. Right-clicking on the tray icon
 provides options to open the Settings screen and Exit the mod.  
 
 
-## Using Combat Mode Mod
+## Using Combat Mod
 
 The original author, pvpProject, has created detailed [YouTube video](http://www.youtube.com/watch?v=3tjK5OI2oAQ)
 of how CombatMod works which should paint a much clearer picture of what this mod is capable of than I'll be able to
 explain here in words. Please watch it first.  
+
+Here's what the Settings screen of the mod looks like.  
+![](GW2CM_Screen1.png?raw=true)  
 
 Out of the box, the following keybinds are enabled
 
