@@ -5,57 +5,76 @@
 ; ^ - Ctrl
 ; # - Win
 
-; __________ CROSSHAIR OPTIONS ____________________________________________ {{{1
+settings_file = settings.ini
+IniRead, curr_profile, %settings_file%, top, CURRENT
 
-; xhair_yper : Location of Crosshair from top of screen, as a percentage.
-;              0 = Top, 1 = Bottom of Screen
-; xhair_ypos : Location of Crosshair in pixels with offset of ( size of xhair / 2 )
-IniRead, xhair_yper, settings.ini, current, XHAIR_POS
-IniRead, xhair_img,  settings.ini, current, XHAIR_IMG
 
-xhair_ypos := ( A_ScreenHeight*xhair_yper - 12 )
+
+; __________ MENU OPTIONS _________________________________________________ {{{1
+
+Menu, Tray, Icon, GW2CM.ico
+Menu, Tray, NoStandard
+Menu, Tray, Add, Settings, _settings
+Menu, Tray, Add, Exit, _exit
+onexit _exit
 
 
 
 ; __________ READ SETTINGS ________________________________________________ {{{1
 
-IniRead, left_click,         settings.ini, current, LEFT
-IniRead, alt_left_click,     settings.ini, current, A_LEFT
-IniRead, shift_left_click,   settings.ini, current, S_LEFT
-IniRead, ctrl_left_click,    settings.ini, current, C_LEFT
-IniRead, right_click,        settings.ini, current, RIGHT
-IniRead, alt_right_click,    settings.ini, current, A_RIGHT
-IniRead, shift_right_click,  settings.ini, current, S_RIGHT
-IniRead, ctrl_right_click,   settings.ini, current, C_RIGHT
-IniRead, middle_click,       settings.ini, current, MIDDLE
-IniRead, alt_middle_click,   settings.ini, current, A_MIDDLE
-IniRead, shift_middle_click, settings.ini, current, S_MIDDLE
-IniRead, ctrl_middle_click,  settings.ini, current, C_MIDDLE
-IniRead, scroll_up,          settings.ini, current, UP
-IniRead, alt_scroll_up,      settings.ini, current, A_UP
-IniRead, shift_scroll_up,    settings.ini, current, S_UP
-IniRead, ctrl_scroll_up,     settings.ini, current, C_UP
-IniRead, scroll_down,        settings.ini, current, DOWN
-IniRead, alt_scroll_down,    settings.ini, current, A_DOWN
-IniRead, shift_scroll_down,  settings.ini, current, S_DOWN
-IniRead, ctrl_scroll_down,   settings.ini, current, C_DOWN
-IniRead, toggle_key,         settings.ini, current, TOGGLE_CM
-IniRead, target_lock,        settings.ini, current, TARGET_LOCK
-IniRead, chat_key,           settings.ini, current, CHAT
-IniRead, command_key,        settings.ini, current, COMMAND
-IniRead, guild_key,          settings.ini, current, GUILD
-IniRead, hero_key,           settings.ini, current, HERO
-IniRead, inventory_key,      settings.ini, current, INVENTORY
-IniRead, invite_key,         settings.ini, current, INVITE
-IniRead, mail_key,           settings.ini, current, MAIL
-IniRead, map_key,            settings.ini, current, MAP
-IniRead, menu_key,           settings.ini, current, MENU
-IniRead, pet_key,            settings.ini, current, PET
-IniRead, pvp_key,            settings.ini, current, PVP
-IniRead, reply_key,          settings.ini, current, REPLY
-IniRead, social_key,         settings.ini, current, SOCIAL
-IniRead, trade_key,          settings.ini, current, TRADE
-IniRead, wvw_key,            settings.ini, current, WVW
+IniRead, left_click         , %settings_file%, %curr_profile%, LEFT        , %A_Space%
+IniRead, alt_left_click     , %settings_file%, %curr_profile%, A_LEFT      , %A_Space%
+IniRead, shift_left_click   , %settings_file%, %curr_profile%, S_LEFT      , %A_Space%
+IniRead, ctrl_left_click    , %settings_file%, %curr_profile%, C_LEFT      , %A_Space%
+IniRead, right_click        , %settings_file%, %curr_profile%, RIGHT       , %A_Space%
+IniRead, alt_right_click    , %settings_file%, %curr_profile%, A_RIGHT     , %A_Space%
+IniRead, shift_right_click  , %settings_file%, %curr_profile%, S_RIGHT     , %A_Space%
+IniRead, ctrl_right_click   , %settings_file%, %curr_profile%, C_RIGHT     , %A_Space%
+IniRead, middle_click       , %settings_file%, %curr_profile%, MIDDLE      , %A_Space%
+IniRead, alt_middle_click   , %settings_file%, %curr_profile%, A_MIDDLE    , %A_Space%
+IniRead, shift_middle_click , %settings_file%, %curr_profile%, S_MIDDLE    , %A_Space%
+IniRead, ctrl_middle_click  , %settings_file%, %curr_profile%, C_MIDDLE    , %A_Space%
+IniRead, scroll_up          , %settings_file%, %curr_profile%, UP          , %A_Space%
+IniRead, alt_scroll_up      , %settings_file%, %curr_profile%, A_UP        , %A_Space%
+IniRead, shift_scroll_up    , %settings_file%, %curr_profile%, S_UP        , %A_Space%
+IniRead, ctrl_scroll_up     , %settings_file%, %curr_profile%, C_UP        , %A_Space%
+IniRead, scroll_down        , %settings_file%, %curr_profile%, DOWN        , %A_Space%
+IniRead, alt_scroll_down    , %settings_file%, %curr_profile%, A_DOWN      , %A_Space%
+IniRead, shift_scroll_down  , %settings_file%, %curr_profile%, S_DOWN      , %A_Space%
+IniRead, ctrl_scroll_down   , %settings_file%, %curr_profile%, C_DOWN      , %A_Space%
+IniRead, toggle_key         , %settings_file%, %curr_profile%, TOGGLE_CM   , %A_Space%
+IniRead, target_lock        , %settings_file%, %curr_profile%, TARGET_LOCK , %A_Space%
+IniRead, chat_key           , %settings_file%, %curr_profile%, CHAT        , %A_Space%
+IniRead, command_key        , %settings_file%, %curr_profile%, COMMAND     , %A_Space%
+IniRead, guild_key          , %settings_file%, %curr_profile%, GUILD       , %A_Space%
+IniRead, hero_key           , %settings_file%, %curr_profile%, HERO        , %A_Space%
+IniRead, information_key    , %settings_file%, %curr_profile%, INFORMATION , %A_Space%
+IniRead, inventory_key      , %settings_file%, %curr_profile%, INVENTORY   , %A_Space%
+IniRead, invite_key         , %settings_file%, %curr_profile%, INVITE      , %A_Space%
+IniRead, logout_key         , %settings_file%, %curr_profile%, LOGOUT      , %A_Space%
+IniRead, mail_key           , %settings_file%, %curr_profile%, MAIL        , %A_Space%
+IniRead, map_key            , %settings_file%, %curr_profile%, MAP         , %A_Space%
+IniRead, menu_key           , %settings_file%, %curr_profile%, MENU        , %A_Space%
+IniRead, options_key        , %settings_file%, %curr_profile%, OPTIONS     , %A_Space%
+IniRead, pet_key            , %settings_file%, %curr_profile%, PET         , %A_Space%
+IniRead, pvp_key            , %settings_file%, %curr_profile%, PVP         , %A_Space%
+IniRead, reply_key          , %settings_file%, %curr_profile%, REPLY       , %A_Space%
+IniRead, social_key         , %settings_file%, %curr_profile%, SOCIAL      , %A_Space%
+IniRead, trade_key          , %settings_file%, %curr_profile%, TRADE       , %A_Space%
+IniRead, wvw_key            , %settings_file%, %curr_profile%, WVW         , %A_Space%
+
+
+
+; __________ CROSSHAIR OPTIONS ____________________________________________ {{{1
+
+; xhair_yper : Location of Crosshair from top of screen, as a percentage.
+;              0 = Top, 1 = Bottom of Screen
+; xhair_ypos : Location of Crosshair in pixels with offset of ( size of xhair / 2 )
+IniRead, xhair_yper,   %settings_file%, %curr_profile%, XHAIR_POS
+IniRead, xhair_img,    %settings_file%, %curr_profile%, XHAIR_IMG
+IniRead, xhair_height, %settings_file%, %curr_profile%, XHAIR_HEIGHT
+
+xhair_ypos := ( A_ScreenHeight*xhair_yper - xhair_height/2 )
 
 
 
@@ -68,7 +87,7 @@ combat_mode  := false
 Hotkey, IfWinActive, Guild Wars 2
 Hotkey, %toggle_key%, toggle_combat_mode, UseErrorLevel 2
 Loop, parse, target_lock, :
-  Hotkey, %A_LoopField%, target_lock, UseErrorLevel 2
+  Hotkey, %A_LoopField%, target_lock_%A_index%, UseErrorLevel 2
 Loop, parse, chat_key, :
   Hotkey, %A_LoopField%, open_chat%A_index%, UseErrorLevel 2
 Loop, parse, command_key, :
@@ -79,14 +98,20 @@ Loop, parse, guild_key, :
   Hotkey, %A_LoopField%, open_guild%A_index%, UseErrorLevel 2
 Loop, parse, hero_key, :
   Hotkey, %A_LoopField%, open_hero%A_index%, UseErrorLevel 2
+Loop, parse, information_key, :
+  Hotkey, %A_LoopField%, open_information%A_index%, UseErrorLevel 2
 Loop, parse, inventory_key, :
   Hotkey, %A_LoopField%, open_inventory%A_index%, UseErrorLevel 2
 Loop, parse, invite_key, :
   Hotkey, %A_LoopField%, open_invite%A_index%, UseErrorLevel 2
+Loop, parse, logout_key, :
+  Hotkey, %A_LoopField%, open_logout%A_index%, UseErrorLevel 2
 Loop, parse, mail_key, :
   Hotkey, %A_LoopField%, open_mail%A_index%, UseErrorLevel 2
 Loop, parse, map_key, :
   Hotkey, %A_LoopField%, open_map%A_index%, UseErrorLevel 2
+Loop, parse, options_key, :
+  Hotkey, %A_LoopField%, open_options%A_index%, UseErrorLevel 2
 Loop, parse, pet_key, :
   Hotkey, %A_LoopField%, open_pet%A_index%, UseErrorLevel 2
 Loop, parse, pvp_key, :
@@ -128,16 +153,27 @@ toggle_combat_mode:
 return
 
 
-$^LButton::
-target_lock:
-  StringSplit, key, keys, :, %A_Space%
-  if ( varExist( target_lock ) && combat_mode ) {
-    Send, {%target_lock% Up}
+target_lock_1:
+  StringSplit, target_lock_arr, target_lock, :, %A_Space%
+  if ( combat_mode ) {
+    Send, {%target_lock_arr1% Up}
     Sleep, 20
-    Send, {%target_lock% Down}
+    Send, {%target_lock_arr1% Down}
     Sleep, 100
   } else {
-    Send, %target_lock%
+    Send, %target_lock_arr1%
+  }
+return
+target_lock_2:
+  StringSplit, target_lock_arr, target_lock, :, %A_Space%
+  ;MsgBox, %target_lock_arr2%
+  if ( combat_mode ) {
+    Send, {%target_lock_arr1% Up}
+    Sleep, 20
+    Send, {%target_lock_arr1% Down}
+    Sleep, 100
+  } else {
+    Send, %target_lock_arr2%
   }
 return
 
@@ -146,7 +182,7 @@ return
 ; __________ LEFT-CLICK BINDINGS __________________________________________ {{{1
 
 $LButton::
-  if ( varExist( left_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %left_click%
   } else {
     Click Down Left
@@ -157,7 +193,7 @@ return
 
 ; Alt+LeftClick
 $!LButton::
-  if ( varExist( alt_left_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %alt_left_click%
   } else {
     Send, {Alt Down}
@@ -169,21 +205,21 @@ $!LButton::
 return
 
 ; Ctrl+LeftClick
-;$^LButton::
-;  if ( varExist( ctrl_left_click ) && combat_mode ){
-;    Send, %ctrl_left_click%
-;  } else {
-;    Send, {Control Down}
-;    Click Down Left
-;    KeyWait, LButton
-;    Click Up Left
-;    Send, {Control Up}
-;  }
-;return
+$^LButton::
+  if ( combat_mode ){
+    Send, %ctrl_left_click%
+  } else {
+    Send, {Control Down}
+    Click Down Left
+    KeyWait, LButton
+    Click Up Left
+    Send, {Control Up}
+  }
+return
 
 ; Shift+LeftClick
 $+LButton::
-  if ( varExist( shift_left_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %shift_left_click%
   } else {
     Send, {Shift Down}
@@ -199,7 +235,7 @@ return
 ; __________ RIGHT-CLICK BINDINGS _________________________________________ {{{1
 
 $RButton::
-  if ( varExist( right_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %right_click%
   } else {
     Click Down Right
@@ -210,7 +246,7 @@ return
 
 ; Alt+RightClick
 $!RButton::
-  if ( varExist( alt_right_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %alt_right_click%
   } else {
     Send, {Alt Down}
@@ -223,7 +259,7 @@ return
 
 ; Ctrl+RightClick
 $^RButton::
-  if ( varExist( ctrl_right_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %ctrl_right_click%
   } else {
     Send, {Control Down}
@@ -236,7 +272,7 @@ return
 
 ; Shift+RightClick
 $+RButton::
-  if ( varExist( shift_right_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %shift_right_click%
   } else {
     Send, {Shift Down}
@@ -252,7 +288,7 @@ return
 ; __________ MIDDLE-CLICK BINDINGS ________________________________________ {{{1
 
 $MButton::
-  if ( varExist( middle_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %middle_click%
   } else {
     Click Down Middle
@@ -263,7 +299,7 @@ return
 
 ; Alt+MiddleClick
 $!MButton::
-  if ( varExist( alt_middle_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %alt_middle_click%
   } else {
     Send, {Alt Down}
@@ -276,7 +312,7 @@ return
 
 ; Ctrl+MiddleClick
 $^MButton::
-  if ( varExist( ctrl_middle_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %ctrl_middle_click%
   } else {
     Send, {Control Down}
@@ -289,7 +325,7 @@ return
 
 ; Shift+MiddleClick
 $+MButton::
-  if ( varExist( shift_middle_click ) && combat_mode ){
+  if ( combat_mode ){
     Send, %shift_middle_click%
   } else {
     Send, {Shift Down}
@@ -356,6 +392,24 @@ $^WheelDown::
   }
 return
 
+; Shift+ScrollUp
+$+WheelUp::
+  if ( combat_mode ){
+    Send, %shift_scroll_up%
+  } else {
+    Send, {+WheelUp}
+  }
+return
+
+; Shift+ScrollDown
+$+WheelDown::
+  if ( combat_mode ){
+    Send, %shift_scroll_down%
+  } else {
+    Send, {+WheelDown}
+  }
+return
+
 
 
 ; __________ PANEL KEYS ___________________________________________________ {{{1
@@ -400,6 +454,14 @@ open_hero2:
 return
 
 
+open_information1:
+  openPanel( information_key, 1 )
+return
+open_information2:
+  openPanel( information_key, 2 )
+return
+
+
 open_inventory1:
   openPanel( inventory_key, 1 )
 return
@@ -416,6 +478,14 @@ open_invite2:
 return
 
 
+open_logout1:
+  openPanel( logout_key, 1 )
+return
+open_logout2:
+  openPanel( logout_key, 2 )
+return
+
+
 open_mail1:
   openPanel( mail_key, 1 )
 return
@@ -429,6 +499,14 @@ open_map1:
 return
 open_map2:
   openPanel( map_key, 2 )
+return
+
+
+open_options1:
+  openPanel( options_key, 1 )
+return
+open_options2:
+  openPanel( options_key, 2 )
 return
 
 
@@ -524,12 +602,14 @@ return
 
 
 ; __________ FUNCTIONS ____________________________________________________ {{{1
+
 varExist(ByRef v) { ; Requires 1.0.46+
   return &v = &n ? false : v = "" ? false : true
 }
 
-openPanel( keys, index ){
-  StringSplit, key, keys, :, %A_Space%
+
+openPanel( key_str, index ){
+  StringSplit, key_arr, key_str, :, %A_Space%
   global combat_mode
   if ( combat_mode ){
     combat_mode := false
@@ -537,7 +617,17 @@ openPanel( keys, index ){
     SplashImage, Off
   }
   if ( index = 1 )
-    Send, {%key1%}
+    Send, {%key_arr1%}
   else if ( index = 2 )
-    Send, {%key2%}
+    Send, {%key_arr2%}
 }
+
+
+_settings:
+Run, Settings.ahk
+return
+
+
+_exit:
+process, Close, Settings.ahk
+exitApp
