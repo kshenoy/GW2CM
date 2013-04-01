@@ -200,9 +200,12 @@ ButtonSave:   ; {{{2
     return
   }
   iniWriteSection( settings_file, gui_profile )           ; Write all settings to the settings_file
+  IniWrite, %gui_profile%, %settings_file%, top, CURRENT  ; Update value of current profile in settings_file
+  Loop, parse, ini_profiles, |
+    if ( A_LoopField = gui_profile )
+      return
   ini_profiles .= gui_profile . "|"                       ; Add new entry to the drop-down list
   guicontrol, , gui_profile, %gui_profile%
-  IniWrite, %gui_profile%, %settings_file%, top, CURRENT  ; Update value of current profile in settings_file
 return
 
 ButtonDelete:   ; {{{2
